@@ -1,7 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import http, { Server } from 'http';
 import { Server as SocketIOServer, Socket } from 'socket.io';
-import { v4 as uuidv4 } from 'uuid';
 
 interface User {
   id: string;
@@ -110,7 +109,7 @@ class OmegleServer {
 
   private hasSimilarInterests(user1: User, user2: User): boolean {
     const sharedInterests = user1.interests.filter((interest) => user2.interests.includes(interest));
-    const interestThreshold = 2; // Adjust this value to set the minimum number of shared interests
+    const interestThreshold = 2; 
     return sharedInterests.length >= interestThreshold;
   }
 
